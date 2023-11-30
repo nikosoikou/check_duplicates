@@ -22,7 +22,9 @@ To use the `check_duplicates` function, import it from the package and pass a pa
 
 ```python
 import pandas as pd
-from src.main import check_duplicates
+
+from src.duplicates import check_duplicates
+
 
 # Create a sample DataFrame
 df = pd.DataFrame(
