@@ -1,6 +1,3 @@
-import logging
-
-
 def check_duplicates(df, cols):
     """
     This function checks for duplicates in a dataframe, based on the columns
@@ -18,23 +15,15 @@ def check_duplicates(df, cols):
                      columns from the input, e.g.:
                          col_1, col_2, number_of_duplicates
     """
-    try:
-        # Find duplicates
-        duplicates = df[df.duplicated(subset=cols, keep=False)]
 
-        # Count duplicates
-        count = len(duplicates)
+    # Find duplicates
+    duplicates = df[df.duplicated(subset=cols, keep=False)]
 
-        # Group by columns and count duplicates
-        samples = duplicates\
-            .groupby(cols)\
-            .size()\
-            .reset_index(name='number_of_duplicates')
+    # Count duplicates
+    count = len(duplicates)
 
-        # Return dictionary
-        return {'count': count, 'samples': samples}
+    # Group by columns and count duplicates
+    samples = duplicates.groupby(cols).size().reset_index(name='number_of_duplicates')
 
-    except Exception as e:
-        logging.error(f"Error in check_duplicates: {e}")
-
-        raise e
+    # Return dictionary
+    return {'count': count, 'samples': samples}
