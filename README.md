@@ -55,6 +55,15 @@ Here's an example of what the output might look like:
 
 In this example, the `count` item indicates that there are 7 cases where duplicates occur, and the `samples` item provides a DataFrame with a group count of duplicate rows for the `col_1` column.
 
+## Benchmark
+
+Here is a benchmark for the `check_duplicates` function. The times are in seconds and were obtained by running the function on a Databricks notebook on a Macbook Pro:
+
+| **Dataframe Size** | **Time (in seconds)** |
+|----------------|------------------|
+| 3M rows        | 0.33             |
+| 30M rows       | 3.67             |
+| 300M rows      | 36.53            |
 
 ## Testing
 
